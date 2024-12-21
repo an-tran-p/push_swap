@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 19:22:18 by atran             #+#    #+#             */
-/*   Updated: 2024/12/18 18:46:12 by atran            ###   ########.fr       */
+/*   Updated: 2024/12/21 15:58:51 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ int	ft_atoi(const char *nptr)
 		nptr++;
 	}
 	num = to_num(nptr, sign);
+	ft_printf("%d\n", num);
 	return (num);
 }
