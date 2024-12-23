@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 18:24:11 by atran             #+#    #+#             */
-/*   Updated: 2024/12/23 18:47:59 by atran            ###   ########.fr       */
+/*   Updated: 2024/12/23 19:46:55 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,8 @@ void				ft_ss(t_list *a_stack, t_list *b_stack);
 void				ft_rotate(t_list *stack, char c);
 void				ft_r_rotate(t_list *stack, char c);
 void				ft_push(t_list *s_stack, t_list **d_stack, char c);
+void				ft_free(t_list **stack);
+void				sort_stack(t_list **stack_a, t_list **stack_b);
+void				ft_print_stack(t_list *stack);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 14:32:21 by atran             #+#    #+#             */
-/*   Updated: 2024/12/23 19:01:55 by atran            ###   ########.fr       */
+/*   Updated: 2024/12/23 19:57:35 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_lstclear(t_list **stack)
+void	ft_free(t_list **stack)
 {
 	t_list	*temp;
 
@@ -52,6 +52,9 @@ int	main(int arg, char **argv)
 	stack_b = NULL;
 	populate_stack(&stack_a, arg, argv);
 	if (check_sorted(stack_a) != 1)
-		return (ft_lstclear(&stack_a), 0);
+		return (ft_free(&stack_a), 0);
+	sort_stack(&stack_a, &stack_b);
+	ft_print_stack(stack_a);
+	ft_free(&stack_a);
 	return (0);
 }
