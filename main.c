@@ -6,84 +6,52 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 14:32:21 by atran             #+#    #+#             */
-/*   Updated: 2024/12/21 17:24:59 by atran            ###   ########.fr       */
+/*   Updated: 2024/12/23 19:01:55 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_lstnew(int value, int index)
+void	ft_lstclear(t_list **stack)
 {
-	t_list	*stack;
+	t_list	*temp;
 
-	stack = malloc(sizeof(t_list));
-	if (!stack)
-		return (NULL);
-	stack->value = value;
-	stack->index = index;
-	stack->next = NULL;
-	return (stack);
-}
-
-t_list	*ft_lstlast(t_list *stack)
-{
-	if (!stack)
-		return (NULL);
-	while (stack->next != NULL)
-		stack = stack->next;
-	return (stack);
-}
-
-void	ft_lstadd_back(t_list **stack, t_list *new)
-{
-	t_list	*last;
-
-	if (!new)
-		return ;
-	if (!(*stack))
+	while (*stack != NULL)
 	{
-		*stack = new;
-		return ;
+		temp = (*stack)->next;
+		free(*stack);
+		*stack = temp;
 	}
-	last = ft_lstlast(*stack);
-	last->next = new;
-}
-
-t_list	*pop_stack(t_list *stack, int arg, char **argv)
-{
-	int		i;
-	t_list	*new;
-
-	i = 1;
-	while (i < arg)
-	{
-		new = ft_lstnew(ft_atoi(argv[i]), (i - 1));
-		ft_lstadd_back(&stack, new);
-		i++;
-	}
-	return (stack);
+	*stack = NULL;
 }
 
 void	ft_print_stack(t_list *stack)
 {
-	while (stack->next != NULL)
+	t_list	*st;
+
+	if (!stack)
+		return ;
+	st = stack;
+	while (st != NULL)
 	{
-		ft_printf("index: %d, value: %d\n", stack->index, stack->value);
-		stack = stack->next;
+		ft_printf("index: %d, value: %d\n", st->index, st->value);
+		st = st->next;
 	}
-	ft_printf("index: %d, value: %d\n", stack->index, stack->value);
 }
 
 int	main(int arg, char **argv)
 {
-	t_list	*stack;
+	t_list	*stack_a;
+	t_list	*stack_b;
 
 	if (arg == 1)
 		return (0);
 	if (check_input(arg, argv) != 0)
 		return (ft_printf("Error\n"), 0);
-	ft_printf("Valid input\n");
-	stack = pop_stack(stack, arg, argv);
-	ft_print_stack(stack);
+	stack_a = NULL;
+	stack_b = NULL;
+	populate_stack(&stack_a, arg, argv);
+	if (check_sorted(stack_a) != 1)
+		return (ft_lstclear(&stack_a), 0);
 	return (0);
 }
