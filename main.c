@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 14:32:21 by atran             #+#    #+#             */
-/*   Updated: 2024/12/23 19:57:35 by atran            ###   ########.fr       */
+/*   Updated: 2024/12/27 18:17:27 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,24 @@ void	ft_free(t_list **stack)
 	*stack = NULL;
 }
 
+void	populate_stack(t_list **stack, int arg, char **argv)
+{
+	int		i;
+	t_list	*new;
+	int		value;
+	int		index;
+
+	i = 1;
+	while (i < arg)
+	{
+		value = ft_atoi(argv[i]);
+		index = i - 1;
+		new = ft_lstnew(value, index);
+		ft_lstadd_back(stack, new);
+		i++;
+	}
+}
+
 void	ft_print_stack(t_list *stack)
 {
 	t_list	*st;
@@ -32,6 +50,7 @@ void	ft_print_stack(t_list *stack)
 	if (!stack)
 		return ;
 	st = stack;
+	ft_printf("stack:\n");
 	while (st != NULL)
 	{
 		ft_printf("index: %d, value: %d\n", st->index, st->value);
@@ -53,8 +72,10 @@ int	main(int arg, char **argv)
 	populate_stack(&stack_a, arg, argv);
 	if (check_sorted(stack_a) != 1)
 		return (ft_free(&stack_a), 0);
-	sort_stack(&stack_a, &stack_b);
-	ft_print_stack(stack_a);
+	sort_stack_base(&stack_a, &stack_b);
+	ft_printf("in main\n");
+	//ft_print_stack(stack_a);
+	//ft_print_stack(stack_b);
 	ft_free(&stack_a);
 	return (0);
 }

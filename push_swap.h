@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 18:24:11 by atran             #+#    #+#             */
-/*   Updated: 2024/12/23 19:46:55 by atran            ###   ########.fr       */
+/*   Updated: 2024/12/27 18:05:22 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_list
 	struct s_list	*prev;
 	struct s_list	*next;
 }					t_list;
+
 
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_printf(const char *str, ...);
@@ -44,9 +45,12 @@ void				ft_swap(t_list *stack, char c);
 void				ft_ss(t_list *a_stack, t_list *b_stack);
 void				ft_rotate(t_list *stack, char c);
 void				ft_r_rotate(t_list *stack, char c);
-void				ft_push(t_list *s_stack, t_list **d_stack, char c);
+void				ft_push(t_list **s_stack, t_list **d_stack, char c);
 void				ft_free(t_list **stack);
-void				sort_stack(t_list **stack_a, t_list **stack_b);
+void				sort_stack_base(t_list **stack_a, t_list **stack_b);
 void				ft_print_stack(t_list *stack);
+int					value_compare(int x, t_list *stack_d);
+int					find_max(t_list *stack);
+void				sort_stack_5(t_list **stack_a, t_list **stack_b);
 
 #endif
