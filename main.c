@@ -75,7 +75,7 @@ int main(int arg, char **argv)
 	sort_stack_base(&stack_a, &stack_b);
 	ft_printf("in main\n");
 	ft_print_stack(stack_a);
-	// ft_print_stack(stack_b);
+	ft_print_stack(stack_b);
 	ft_free(&stack_a);
 	return (0);
 }
