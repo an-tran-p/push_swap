@@ -12,9 +12,9 @@
 
 #include "push_swap.h"
 
-void	ft_free(t_list **stack)
+void ft_free(t_list **stack)
 {
-	t_list	*temp;
+	t_list *temp;
 
 	while (*stack != NULL)
 	{
@@ -25,12 +25,12 @@ void	ft_free(t_list **stack)
 	*stack = NULL;
 }
 
-void	populate_stack(t_list **stack, int arg, char **argv)
+void populate_stack(t_list **stack, int arg, char **argv)
 {
-	int		i;
-	t_list	*new;
-	int		value;
-	int		index;
+	int i;
+	t_list *new;
+	int value;
+	int index;
 
 	i = 1;
 	while (i < arg)
@@ -43,12 +43,12 @@ void	populate_stack(t_list **stack, int arg, char **argv)
 	}
 }
 
-void	ft_print_stack(t_list *stack)
+void ft_print_stack(t_list *stack)
 {
-	t_list	*st;
+	t_list *st;
 
 	if (!stack)
-		return ;
+		return;
 	st = stack;
 	ft_printf("stack:\n");
 	while (st != NULL)
@@ -58,10 +58,10 @@ void	ft_print_stack(t_list *stack)
 	}
 }
 
-int	main(int arg, char **argv)
+int main(int arg, char **argv)
 {
-	t_list	*stack_a;
-	t_list	*stack_b;
+	t_list *stack_a;
+	t_list *stack_b;
 
 	if (arg == 1)
 		return (0);
@@ -74,8 +74,8 @@ int	main(int arg, char **argv)
 		return (ft_free(&stack_a), 0);
 	sort_stack_base(&stack_a, &stack_b);
 	ft_printf("in main\n");
-	//ft_print_stack(stack_a);
-	//ft_print_stack(stack_b);
+	ft_print_stack(stack_a);
+	// ft_print_stack(stack_b);
 	ft_free(&stack_a);
 	return (0);
 }
