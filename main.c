@@ -6,15 +6,15 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 14:32:21 by atran             #+#    #+#             */
-/*   Updated: 2024/12/27 18:17:27 by atran            ###   ########.fr       */
+/*   Updated: 2025/01/03 18:07:34 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ft_free(t_list **stack)
+void	ft_free(t_list **stack)
 {
-	t_list *temp;
+	t_list	*temp;
 
 	while (*stack != NULL)
 	{
@@ -25,12 +25,12 @@ void ft_free(t_list **stack)
 	*stack = NULL;
 }
 
-void populate_stack(t_list **stack, int arg, char **argv)
+void	populate_stack(t_list **stack, int arg, char **argv)
 {
-	int i;
-	t_list *new;
-	int value;
-	int index;
+	int		i;
+	t_list	*new;
+	int		value;
+	int		index;
 
 	i = 1;
 	while (i < arg)
@@ -43,12 +43,12 @@ void populate_stack(t_list **stack, int arg, char **argv)
 	}
 }
 
-void ft_print_stack(t_list *stack)
+void	ft_print_stack(t_list *stack)
 {
-	t_list *st;
+	t_list	*st;
 
 	if (!stack)
-		return;
+		return ;
 	st = stack;
 	ft_printf("stack:\n");
 	while (st != NULL)
@@ -58,10 +58,10 @@ void ft_print_stack(t_list *stack)
 	}
 }
 
-int main(int arg, char **argv)
+int	main(int arg, char **argv)
 {
-	t_list *stack_a;
-	t_list *stack_b;
+	t_list	*stack_a;
+	t_list	*stack_b;
 
 	if (arg == 1)
 		return (0);
