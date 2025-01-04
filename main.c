@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 14:32:21 by atran             #+#    #+#             */
-/*   Updated: 2025/01/03 18:07:34 by atran            ###   ########.fr       */
+/*   Updated: 2025/01/04 22:31:11 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,21 +43,6 @@ void	populate_stack(t_list **stack, int arg, char **argv)
 	}
 }
 
-void	ft_print_stack(t_list *stack)
-{
-	t_list	*st;
-
-	if (!stack)
-		return ;
-	st = stack;
-	ft_printf("stack:\n");
-	while (st != NULL)
-	{
-		ft_printf("index: %d, value: %d\n", st->index, st->value);
-		st = st->next;
-	}
-}
-
 int	main(int arg, char **argv)
 {
 	t_list	*stack_a;
@@ -72,10 +57,7 @@ int	main(int arg, char **argv)
 	populate_stack(&stack_a, arg, argv);
 	if (check_sorted(stack_a) != 1)
 		return (ft_free(&stack_a), 0);
-	sort_stack_base(&stack_a, &stack_b);
-	ft_printf("in main\n");
-	ft_print_stack(stack_a);
-	// ft_print_stack(stack_b);
+	sort_stack(&stack_a, &stack_b);
 	ft_free(&stack_a);
 	ft_free(&stack_b);
 	return (0);

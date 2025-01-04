@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 15:26:22 by atran             #+#    #+#             */
-/*   Updated: 2024/12/27 17:04:48 by atran            ###   ########.fr       */
+/*   Updated: 2025/01/04 21:51:16 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ int	check_sorted(t_list *stack)
 	comp = st->value;
 	while (st != 0)
 	{
-		if (comp > st->value)
+		if (comp >= st->value)
 			return (1);
 		comp = st->value;
 		st = st->next;
