@@ -23,7 +23,7 @@ int	check_array(int *arr, int num)
 	{
 		if (num == arr[i])
 			return (1);
-		i ++;
+		i++;
 	}
 	return (0);
 }
@@ -31,9 +31,9 @@ int	check_array(int *arr, int num)
 int	*find_5_max(t_list *stack)
 {
 	t_list	*st;
-	int	*arr;
-	int	i;
-	int max;
+	int		*arr;
+	int		i;
+	int		max;
 
 	i = 0;
 	arr = malloc(5 * sizeof(int));
@@ -50,7 +50,7 @@ int	*find_5_max(t_list *stack)
 			st = st->next;
 		}
 		arr[i] = max;
-		i ++;
+		i++;
 	}
 	return (arr);
 }

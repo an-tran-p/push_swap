@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 15:26:22 by atran             #+#    #+#             */
-/*   Updated: 2025/01/05 17:24:16 by atran            ###   ########.fr       */
+/*   Updated: 2025/01/28 10:58:45 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	check_digit(int arg, char **argv)
 		while (argv[i][j])
 		{
 			if (!((argv[i][j] >= '0' && argv[i][j] <= '9') || argv[i][j] == '-'
-					|| argv[i][j] == '+'))
+					|| argv[i][j] == '+') || argv[i][j] == ' ')
 				return (1);
 			if ((argv[i][j] == '-' || argv[i][j] == '+') && flag == 1)
 				return (1);

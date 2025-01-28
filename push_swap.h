@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 18:24:11 by atran             #+#    #+#             */
-/*   Updated: 2025/01/04 22:34:55 by atran            ###   ########.fr       */
+/*   Updated: 2025/01/28 12:06:13 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,16 @@ t_list				*find_min(t_list *stack);
 void				sort_stack_5(t_list **stack_a, t_list **stack_b);
 void				sort_stack_3(t_list *stack);
 t_list				*find_place(t_list *stack, int num);
-int					count_ops(int a, int value_a, t_list **stack_a, t_list **stack_b);
-void				push_to_b(t_list **stack_a, t_list **stack_b, int num, int index);
+int					count_ops(int a, int value_a, t_list **stack_a,
+						t_list **stack_b);
+void				push_to_b(t_list **stack_a, t_list **stack_b, int num,
+						int index);
 void				sort_stack(t_list **stack_a, t_list **stack_b);
 void				final_stack_rotate(t_list **stack);
+char				**ft_split(char const *s, char c);
+int					ft_word_count(char const *s, char c);
+size_t				ft_strlcpy(char *dest, char *src, size_t size);
+char				*ft_strjoin(char const *s1, char const *s2);
+char				**ft_free_strarr(char **ar, int count);
 
 #endif

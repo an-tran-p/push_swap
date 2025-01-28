@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 22:21:13 by atran             #+#    #+#             */
-/*   Updated: 2025/01/04 22:22:03 by atran            ###   ########.fr       */
+/*   Updated: 2025/01/28 12:04:29 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,8 @@ void	rotate_b_rev_a(t_list **stack_a, t_list **stack_b, int a_rotate,
 
 void	push_to_b(t_list **stack_a, t_list **stack_b, int num, int index)
 {
-	t_list *place;
-	int	b_rotate;
+	t_list	*place;
+	int		b_rotate;
 
 	place = find_place(*stack_b, num);
 	if (!place)
