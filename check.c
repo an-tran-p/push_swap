@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 15:26:22 by atran             #+#    #+#             */
-/*   Updated: 2025/01/28 18:36:35 by atran            ###   ########.fr       */
+/*   Updated: 2025/01/28 19:19:14 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	check_digit(int arg, char **argv)
 	int	j;
 	int	flag;
 
-	i = 1;
+	i = 0;
 	while (i < arg)
 	{
 		j = 0;
@@ -44,7 +44,7 @@ int	check_dup(int arg, char **argv)
 	int	i;
 	int	j;
 
-	i = 1;
+	i = 0;
 	while (i < arg)
 	{
 		j = 1;
@@ -65,7 +65,7 @@ int	check_min_max(int arg, char **argv)
 	long int	num;
 	int			j;
 
-	i = 1;
+	i = 0;
 	while (i < arg)
 	{
 		num = 0;

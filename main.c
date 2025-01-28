@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 14:32:21 by atran             #+#    #+#             */
-/*   Updated: 2025/01/28 18:38:36 by atran            ###   ########.fr       */
+/*   Updated: 2025/01/28 19:20:50 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ void	populate_stack(t_list **stack, int arg, char **argv)
 	int		value;
 	int		index;
 
-	i = 1;
+	i = 0;
 	while (i < arg)
 	{
 		value = ft_atoi(argv[i]);
-		index = i - 1;
+		index = i;
 		new = ft_lstnew(value, index);
 		ft_lstadd_back(stack, new);
 		i++;
