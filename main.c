@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 14:32:21 by atran             #+#    #+#             */
-/*   Updated: 2025/01/28 11:59:06 by atran            ###   ########.fr       */
+/*   Updated: 2025/01/28 18:38:36 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,21 +46,19 @@ void	populate_stack(t_list **stack, int arg, char **argv)
 t_list	*populate_stack_from_str(t_list *stack_a, char **argv)
 {
 	int		word;
-	char	*str;
 	char	**str_arr;
 
-	str = ft_strjoin("./push_swap ", argv[1]);
-	if (!str)
-		return (free(str), NULL);
-	word = ft_word_count(str, ' ');
-	str_arr = ft_split(str, ' ');
+	word = ft_word_count(argv[1], ' ');
+	str_arr = ft_split(argv[1], ' ');
 	if (!str_arr)
-		return (ft_free_strarr(str_arr, word), free(str), NULL);
+		return (ft_free_strarr(str_arr, word), NULL);
 	if (check_input(word, str_arr) != 0)
-		return (ft_printf("Error\n"), ft_free_strarr(str_arr, word), free(str),
-			NULL);
+	{
+		ft_printf("Error\n");
+		return (ft_free_strarr(str_arr, word), NULL);
+	}
 	populate_stack(&stack_a, word, str_arr);
-	return (ft_free_strarr(str_arr, word), free(str), stack_a);
+	return (ft_free_strarr(str_arr, word), stack_a);
 }
 
 int	main(int arg, char **argv)
@@ -80,9 +78,9 @@ int	main(int arg, char **argv)
 	}
 	if (arg > 2)
 	{
-		if (check_input(arg, argv) != 0)
+		if (check_input(arg - 1, argv + 1) != 0)
 			return (ft_printf("Error\n"), 0);
-		populate_stack(&stack_a, arg, argv);
+		populate_stack(&stack_a, arg - 1, argv + 1);
 	}
 	if (check_sorted(stack_a) != 1)
 		return (ft_free(&stack_a), 0);

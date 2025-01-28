@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 18:24:11 by atran             #+#    #+#             */
-/*   Updated: 2025/01/28 12:06:13 by atran            ###   ########.fr       */
+/*   Updated: 2025/01/28 18:53:42 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void				final_stack_rotate(t_list **stack);
 char				**ft_split(char const *s, char c);
 int					ft_word_count(char const *s, char c);
 size_t				ft_strlcpy(char *dest, char *src, size_t size);
-char				*ft_strjoin(char const *s1, char const *s2);
 char				**ft_free_strarr(char **ar, int count);
+void				*ft_memset(void *s, int c, size_t n);
 
 #endif

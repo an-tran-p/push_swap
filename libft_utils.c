@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 14:20:06 by atran             #+#    #+#             */
-/*   Updated: 2025/01/28 11:21:46 by atran            ###   ########.fr       */
+/*   Updated: 2025/01/28 19:02:33 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,25 +36,6 @@ int	ft_strcmp(const char *s1, const char *s2)
 	return (0);
 }
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
-{
-	unsigned char	*d;
-	size_t			i;
-
-	d = dest;
-	i = 0;
-	if (!dest && !src)
-		return (NULL);
-	while (i < n)
-	{
-		*(unsigned char *)d = *(unsigned char *)src;
-		src++;
-		d++;
-		i++;
-	}
-	return (dest);
-}
-
 size_t	ft_strlcpy(char *dest, char *src, size_t size)
 {
 	int		l;
@@ -73,22 +54,16 @@ size_t	ft_strlcpy(char *dest, char *src, size_t size)
 	return (l);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	size_t	s1_l;
-	size_t	s2_l;
-	char	*dest;
+	void	*str;
 
-	s1_l = ft_strlen(s1);
-	s2_l = ft_strlen(s2);
-	dest = malloc((s1_l + s2_l + 1) * sizeof(char));
-	if (!dest)
-		return (NULL);
-	else
+	str = s;
+	while (n > 0)
 	{
-		ft_memcpy(&dest[0], s1, s1_l);
-		ft_memcpy(&dest[s1_l], s2, s2_l);
-		dest[s1_l + s2_l] = '\0';
-		return (dest);
+		*(unsigned char *)str = (unsigned char)c;
+		str++;
+		n--;
 	}
+	return (s);
 }

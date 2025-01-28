@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 19:12:41 by atran             #+#    #+#             */
-/*   Updated: 2025/01/04 22:31:01 by atran            ###   ########.fr       */
+/*   Updated: 2025/01/28 19:07:55 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ int	check_array(int *arr, int num)
 {
 	int	i;
 
-	if (!arr)
-		return (0);
 	i = 0;
 	while (i < 5)
 	{
@@ -37,12 +35,13 @@ int	*find_5_max(t_list *stack)
 
 	i = 0;
 	arr = malloc(5 * sizeof(int));
+	ft_memset(arr, -2147483648, 5 * sizeof(int));
 	if (!arr)
 		return (NULL);
 	while (i < 5)
 	{
 		st = stack;
-		max = -2147483647;
+		max = -2147483648;
 		while (st)
 		{
 			if (st->value > max && check_array(arr, st->value) == 0)

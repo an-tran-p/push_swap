@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 15:26:22 by atran             #+#    #+#             */
-/*   Updated: 2025/01/28 10:58:45 by atran            ###   ########.fr       */
+/*   Updated: 2025/01/28 18:36:35 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,7 @@ int	check_dup(int arg, char **argv)
 int	check_min_max(int arg, char **argv)
 {
 	int			i;
-	long int	check;
-	int			num;
+	long int	num;
 	int			j;
 
 	i = 1;
@@ -75,10 +74,10 @@ int	check_min_max(int arg, char **argv)
 			j++;
 		while (argv[i][j] >= '0' && argv[i][j] <= '9')
 		{
-			check = num;
-			if (check > check * 10)
-				return (1);
 			num = (num * 10) + (argv[i][j] - '0');
+			if ((argv[i][0] != '-' && num > 2147483647)
+				|| (argv[i][0] == '-' && num > 2147483648))
+				return (1);
 			j++;
 		}
 		i++;
