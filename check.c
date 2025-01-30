@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 15:26:22 by atran             #+#    #+#             */
-/*   Updated: 2025/01/28 19:19:14 by atran            ###   ########.fr       */
+/*   Updated: 2025/01/30 20:45:31 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,10 @@ int	check_digit(int arg, char **argv)
 		while (argv[i][j])
 		{
 			if (!((argv[i][j] >= '0' && argv[i][j] <= '9') || argv[i][j] == '-'
-					|| argv[i][j] == '+') || argv[i][j] == ' ')
+					|| argv[i][j] == '+'))
 				return (1);
-			if ((argv[i][j] == '-' || argv[i][j] == '+') && flag == 1)
+			if ((argv[i][j] < '0' || argv[i][j] > '9')
+				&& (flag == 1 || ft_strlen(argv[i]) == 1))
 				return (1);
 			if ((argv[i][j] == '-' || argv[i][j] == '+') && flag == 0)
 				flag = 1;
@@ -39,22 +40,24 @@ int	check_digit(int arg, char **argv)
 	return (0);
 }
 
-int	check_dup(int arg, char **argv)
+int	check_dup(t_list *stack)
 {
-	int	i;
-	int	j;
+	t_list	*st;
+	t_list	*st2;
 
-	i = 0;
-	while (i < arg)
+	if (!stack)
+		return (0);
+	st = stack;
+	st2 = stack;
+	while (st)
 	{
-		j = 1;
-		while (j < i)
+		while (st2)
 		{
-			if (ft_strcmp(argv[i], argv[j]) == 0)
+			if (st->value == st2->value && st->index != st2->index)
 				return (1);
-			j++;
+			st2 = st2->next;
 		}
-		i++;
+		st = st->next;
 	}
 	return (0);
 }
@@ -74,6 +77,9 @@ int	check_min_max(int arg, char **argv)
 			j++;
 		while (argv[i][j] >= '0' && argv[i][j] <= '9')
 		{
+			if (num == 0 && argv[i][j] == '0'
+				&& (int)ft_strlen(argv[i]) > (j + 1))
+				return (1);
 			num = (num * 10) + (argv[i][j] - '0');
 			if ((argv[i][0] != '-' && num > 2147483647)
 				|| (argv[i][0] == '-' && num > 2147483648))
@@ -87,8 +93,7 @@ int	check_min_max(int arg, char **argv)
 
 int	check_input(int arg, char **argv)
 {
-	if (check_digit(arg, argv) != 0 || check_dup(arg, argv) != 0
-		|| check_min_max(arg, argv) != 0)
+	if (check_digit(arg, argv) != 0 || check_min_max(arg, argv) != 0)
 		return (1);
 	return (0);
 }

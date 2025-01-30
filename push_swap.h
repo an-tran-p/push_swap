@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 18:24:11 by atran             #+#    #+#             */
-/*   Updated: 2025/01/28 18:53:42 by atran            ###   ########.fr       */
+/*   Updated: 2025/01/30 20:07:51 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
+size_t				ft_strlen(const char *str);
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_printf(const char *str, ...);
 int					ft_unsigned_hex(uint64_t n, char c);
@@ -39,6 +40,7 @@ int					ft_lstcount(t_list *stack);
 void				ft_lstadd_front(t_list **stack, t_list *new);
 int					check_input(int arg, char **argv);
 void				populate_stack(t_list **stack, int arg, char **argv);
+int					check_dup(t_list *stack);
 int					check_sorted(t_list *stack);
 void				ft_swap(t_list *stack, char c);
 void				ft_ss(t_list *a_stack, t_list *b_stack);

@@ -6,7 +6,7 @@
 /*   By: atran <atran@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 22:24:17 by atran             #+#    #+#             */
-/*   Updated: 2025/01/28 12:03:41 by atran            ###   ########.fr       */
+/*   Updated: 2025/01/30 17:32:36 by atran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,11 @@ void	sort_stack_3(t_list *stack)
 
 	st = stack->next;
 	if (st->value < (st->prev)->value && st->value > (st->next)->value)
-		return (ft_rotate(stack, 'a'), ft_swap(stack, 'a'));
+	{
+		ft_rotate(stack, 'a');
+		ft_swap(stack, 'a');
+		return ;
+	}
 	if (st->value < (st->prev)->value && st->value < (st->next)->value
 		&& (st->next)->value < (st->prev)->value)
 		return (ft_rotate(stack, 'a'));
@@ -75,7 +79,11 @@ void	sort_stack_3(t_list *stack)
 		return (ft_r_rotate(stack, 'a'));
 	if (st->value > (st->prev)->value && st->value > (st->next)->value
 		&& (st->next)->value > (st->prev)->value)
-		return (ft_swap(stack, 'a'), ft_rotate(stack, 'a'));
+	{
+		ft_swap(stack, 'a');
+		ft_rotate(stack, 'a');
+		return ;
+	}
 }
 
 void	sort_stack_5(t_list **stack_a, t_list **stack_b)
